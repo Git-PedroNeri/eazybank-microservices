@@ -46,6 +46,9 @@ public class LoansController {
     @Value("${build.version}")
     private String buildVersion;
 
+    @Value("${java.version}")
+    private String javaVersion;
+
     @Autowired
     private Environment environment;
 
@@ -209,25 +212,31 @@ public class LoansController {
             summary = "Get Java version",
             description = "Get Java versions details that is installed into cards microservice"
     )
-    @ApiResponses({
-            @ApiResponse(
-                    responseCode = "200",
-                    description = "HTTP Status OK"
-            ),
-            @ApiResponse(
-                    responseCode = "500",
-                    description = "HTTP Status Internal Server Error",
-                    content = @Content(
-                            schema = @Schema(implementation = ErrorResponseDto.class)
-                    )
-            )
-    }
-    )
+//    @ApiResponses({
+//            @ApiResponse(
+//                    responseCode = "200",
+//                    description = "HTTP Status OK"
+//            ),
+//            @ApiResponse(
+//                    responseCode = "500",
+//                    description = "HTTP Status Internal Server Error",
+//                    content = @Content(
+//                            schema = @Schema(implementation = ErrorResponseDto.class)
+//                    )
+//            )
+//    }
+//    )
     @GetMapping("/java-version")
     public ResponseEntity<String> getJavaVersion() {
         return ResponseEntity
                 .status(HttpStatus.OK)
                 .body(environment.getProperty("JAVA_HOME"));
+    }
+    @GetMapping("/properties/java-version")
+    public ResponseEntity<String> getPropertiesJavaVersion() {
+        return ResponseEntity
+                .status(HttpStatus.OK)
+                .body(javaVersion);
     }
 
     @Operation(

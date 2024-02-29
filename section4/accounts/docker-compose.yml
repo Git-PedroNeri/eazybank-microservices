@@ -1,6 +1,6 @@
 services:
   accounts:
-    image: "pneri/accounts:s4"
+    image: "pneri/account:s4"
     container_name: accounts-ms
     ports:
       - "8080:8080"
