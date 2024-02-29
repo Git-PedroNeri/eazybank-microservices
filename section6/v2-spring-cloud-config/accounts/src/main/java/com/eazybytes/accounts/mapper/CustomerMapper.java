@@ -12,11 +12,13 @@ public class CustomerMapper {
         return customerDto;
     }
 
-    public static Customer mapToCustomer(CustomerDto customerDto, Customer customer) {
-        customer.setName(customerDto.getName());
-        customer.setEmail(customerDto.getEmail());
-        customer.setMobileNumber(customerDto.getMobileNumber());
-        return customer;
+    public static Customer mapToCustomer(CustomerDto dto, Customer entity) {
+        return  Customer.builder()
+                .name(dto.getName())
+                .email(dto.getEmail())
+                .mobileNumber(dto.getMobileNumber())
+                .build();
+
     }
 
 }
