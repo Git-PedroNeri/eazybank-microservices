@@ -72,7 +72,7 @@
 				<version>3.3.2</version>
 				<configuration>
 					<to>
-						<image>eazybytes/${project.artifactId}:s12</image>
+						<image>pneri/${project.artifactId}:s12</image>
 					</to>
 				</configuration>
 			</plugin>
